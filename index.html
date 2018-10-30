@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <title>Simple Gradients for Notion</title>
+    <link rel="icon" href="star-eyes.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.material-color-picker.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+
+    <div id="gradientDiv">
+
+        <header v-bind:style="getStyleObject" id="header"></header>
+    
+        <main class="container">
+            <div class="row"></div>
+            <div class="row">
+                <div class="col-md-6 offset-md-2">
+                    <img src="star-eyes.png" alt="Star Eyes Emoji" id="emoji">
+                    <br>
+                    <h1>Simple Gradients</h1>
+                </div>
+                <div class="col">
+                    <a href="#" class="pickerDotTop"><span class="dot" id="dot-top"></span></a>
+                    <a href="#" class="pickerDotBottom"><span class="dot" id="dot-bottom"></span></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col offset-md-2">
+                    <h3>How to use:</h3>
+                    <p>
+                        1. Use the color picker to the right to choose a color you like <br>
+                        2. Preview it above to make sure it looks good <br>
+                        3. Download button to save the image <br>
+                        4. In notion, upload your new cover <br>
+                        5. Repeat!
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button class="btn btn-primary" id="downloadBtn" v-on:click="saveImg">Download</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    
+    <script src="js/main.js"></script>
+    <script src="js/download.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.material-color-picker.min.js"></script>
+    <script>
+        $('.pickerDotTop').materialColorPicker({
+            format: 'hex',
+            placement: 'bottom-right',
+            closeonout: true,
+            onSelect: function(e) {
+                if (e.currentcolor) {
+                    var color = e.currentcolor.color;
+                    gradientMaker.setStyleColor('top', color);
+                    $('#header').attr('style', gradientMaker.getStyleObject2());
+                    document.getElementById('dot-top').style.backgroundColor = color;
+                }
+            }
+        });
+
+        $('.pickerDotBottom').materialColorPicker({
+            format: 'hex',
+            placement: 'bottom-right',
+            closeonout: true,
+            onSelect: function(e) {
+                if (e.currentcolor) {
+                    var color = e.currentcolor.color;
+                    gradientMaker.setStyleColor('bottom', color);
+                    $('#header').attr('style', gradientMaker.getStyleObject2());
+                    document.getElementById('dot-bottom').style.backgroundColor = color;
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
