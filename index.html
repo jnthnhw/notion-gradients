@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Simple Gradients for Notion</title>
     <link rel="icon" href="star-eyes.png" type="image/png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -11,11 +12,11 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128375337-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-      gtag('config', 'UA-128375337-1');
+        gtag('config', 'UA-128375337-1');
     </script>
 </head>
 
@@ -26,11 +27,13 @@
         <header v-bind:style="getStyleObject" id="header"></header>
     
         <main class="container">
-            <div class="row"></div>
             <div class="row">
                 <div class="col-md-6 offset-md-2">
                     <img src="star-eyes.png" alt="Star Eyes Emoji" id="emoji">
-                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-2">
                     <h1>Simple Gradients</h1>
                 </div>
                 <div class="col">
@@ -66,7 +69,7 @@
     <script>
         $('.pickerDotTop').materialColorPicker({
             format: 'hex',
-            placement: 'bottom-right',
+            placement: 'bottom-left',
             closeonout: true,
             onSelect: function(e) {
                 if (e.currentcolor) {
@@ -80,7 +83,7 @@
 
         $('.pickerDotBottom').materialColorPicker({
             format: 'hex',
-            placement: 'bottom-right',
+            placement: 'bottom-left',
             closeonout: true,
             onSelect: function(e) {
                 if (e.currentcolor) {
